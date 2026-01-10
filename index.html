@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CasinoBet99 - Premium Online Casino Demo</title>
+    <link rel="stylesheet" href="styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">🎰 CasinoBet99</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('games')">Games</a></li>
+            <li><a href="#" onclick="showPage('wallet')">Wallet</a></li>
+            <li><a href="#" onclick="showPage('profile')">Profile</a></li>
+        </ul>
+        <div class="user-panel">
+            <div class="wallet-balance">
+                <span>💰</span>
+                <span id="userBalance">$10,000.00</span>
+            </div>
+            <button class="btn btn-primary" onclick="showDepositModal()">Deposit</button>
+            <button class="btn btn-success" onclick="showWithdrawModal()">Withdraw</button>
+            <button class="btn btn-danger" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+        <section class="hero">
+            <h1>🎰 Welcome to CasinoBet99</h1>
+            <p>Experience the thrill of premium casino gaming with our play-money demo. Test your luck and skills in our secure environment!</p>
+            <button class="btn btn-primary pulse" onclick="showPage('games')">Start Playing Now</button>
+        </section>
+
+        <section class="games-section">
+            <h2 class="section-title">🎮 Popular Games</h2>
+            <div class="games-grid">
+                <div class="game-card" onclick="showGame('slots')">
+                    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400" alt="Slot Machine">
+                    <div class="game-info">
+                        <h3>🎰 Lucky Slots</h3>
+                        <p>Spin the reels and win big with our exciting slot machine!</p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="showGame('roulette')">
+                    <img src="https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=400" alt="Roulette">
+                    <div class="game-info">
+                        <h3>🎯 Premium Roulette</h3>
+                        <p>Place your bets and watch the wheel spin!</p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="showGame('blackjack')">
+                    <img src="https://images.unsplash.com/photo-1541278107931-e006523892df?w=400" alt="Blackjack">
+                    <div class="game-info">
+                        <h3>🃏 Blackjack Pro</h3>
+                        <p>Beat the dealer and get closest to 21!</p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="showGame('poker')">
+                    <img src="https://images.unsplash.com/photo-1511193311914-0346f16efe90?w=400" alt="Poker">
+                    <div class="game-info">
+                        <h3>♠️ Texas Hold'em</h3>
+                        <p>Classic poker with exciting gameplay!</p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Games Page -->
+    <div id="gamesPage" class="page" style="display: none;">
+        <div class="games-section">
+            <h2 class="section-title">🎮 All Games</h2>
+            <div class="games-grid">
+                <div class="game-card" onclick="showGame('slots')">
+                    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400" alt="Slot Machine">
+                    <div class="game-info">
+                        <h3>🎰 Lucky Slots</h3>
+                        <p>Spin and win with multipliers up to 100x!</p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="showGame('roulette')">
+                    <img src="https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=400" alt="Roulette">
+                    <div class="game-info">
+                        <h3>🎯 Premium Roulette</h3>
+                        <p>European Roulette with single zero!</p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="showGame('blackjack')">
+                    <img src="https://images.unsplash.com/photo-1541278107931-e006523892df?w=400" alt="Blackjack">
+                    <div class="game-info">
+                        <h3>🃏 Blackjack Pro</h3>
+                        <p>Multiple decks with favorable rules!</p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="showGame('poker')">
+                    <img src="https://images.unsplash.com/photo-1511193311914-0346f16efe90?w=400" alt="Poker">
+                    <div class="game-info">
+                        <h3>♠️ Texas Hold'em</h3>
+                        <p>Tournament style poker gameplay!</p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wallet Page -->
+    <div id="walletPage" class="page" style="display: none;">
+        <div class="game-container">
+            <div class="game-header">
+                <h2>💰 My Wallet</h2>
+            </div>
+            
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Available Balance</h3>
+                    <div class="value" id="walletBalance">$10,000.00</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Deposits</h3>
+                    <div class="value">$0.00</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Withdrawals</h3>
+                    <div class="value">$0.00</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Winnings</h3>
+                    <div class="value">$0.00</div>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" onclick="showWalletTab('deposits')">Deposit History</button>
+                <button class="tab" onclick="showWalletTab('withdrawals')">Withdrawal History</button>
+                <button class="tab" onclick="showWalletTab('transactions')">All Transactions</button>
+            </div>
+
+            <div id="depositsTab" class="tab-content active">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Method</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="depositsTable">
+                        <tr>
+                            <td colspan="4" style="text-align: center;">No deposits yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="withdrawalsTab" class="tab-content">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Method</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="withdrawalsTable">
+                        <tr>
+                            <td colspan="4" style="text-align: center;">No withdrawals yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="transactionsTab" class="tab-content">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionsTable">
+                        <tr>
+                            <td colspan="4" style="text-align: center;">No transactions yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Page -->
+    <div id="profilePage" class="page" style="display: none;">
+        <div class="game-container">
+            <div class="game-header">
+                <h2>👤 My Profile</h2>
+            </div>
+            
+            <div class="game-board">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" id="profileUsername" value="DemoUser">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="profileEmail" value="demo@casino.com">
+                </div>
+                <div class="form-group">
+                    <label>Member Since</label>
+                    <input type="text" class="form-control" value="January 2024" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Account Type</label>
+                    <input type="text" class="form-control" value="VIP Member" disabled>
+                </div>
+                <button class="btn btn-primary" onclick="updateProfile()">Update Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slot Machine Game -->
+    <div id="slotsGame" class="page" style="display: none;">
+        <div class="game-container">
+            <div class="game-header">
+                <h2>🎰 Lucky Slots</h2>
+                <button class="btn btn-primary" onclick="showPage('games')">Back to Games</button>
+            </div>
+            
+            <div class="game-board">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h3>Current Bet: <span id="currentSlotBet">$10</span></h3>
+                    <p>Match 3 symbols to win! 🍒 🍋 🍊 💎 7️⃣</p>
+                </div>
+
+                <div class="slot-machine">
+                    <div class="reel" id="reel1">🍒</div>
+                    <div class="reel" id="reel2">🍋</div>
+                    <div class="reel" id="reel3">🍊</div>
+                </div>
+
+                <div id="slotResult" style="text-align: center; margin: 2rem 0; font-size: 1.5rem; font-weight: bold;"></div>
+
+                <div class="betting-controls">
+                    <input type="number" class="bet-input" id="slotBetAmount" value="10" min="1" max="1000">
+                    <button class="btn btn-primary" onclick="placeSlotBet()">Spin 🎰</button>
+                    <button class="btn btn-success" onclick="maxBetSlot()">Max Bet</button>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4>💰 Payouts:</h4>
+                    <ul style="color: var(--text-muted);">
+                        <li>🍒🍒🍒 - 5x your bet</li>
+                        <li>🍋🍋🍋 - 10x your bet</li>
+                        <li>🍊🍊🍊 - 15x your bet</li>
+                        <li>💎💎💎 - 25x your bet</li>
+                        <li>7️⃣7️⃣7️⃣ - 100x your bet!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roulette Game -->
+    <div id="rouletteGame" class="page" style="display: none;">
+        <div class="game-container">
+            <div class="game-header">
+                <h2>🎯 Premium Roulette</h2>
+                <button class="btn btn-primary" onclick="showPage('games')">Back to Games</button>
+            </div>
+            
+            <div class="game-board">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h3>Current Bet: <span id="currentRouletteBet">$10</span></h3>
+                </div>
+
+                <div class="roulette-wheel" id="rouletteWheel">
+                    <div class="roulette-ball"></div>
+                </div>
+
+                <div id="rouletteResult" style="text-align: center; margin: 2rem 0; font-size: 1.5rem; font-weight: bold;"></div>
+
+                <div class="betting-controls">
+                    <input type="number" class="bet-input" id="rouletteBetAmount" value="10" min="1" max="1000">
+                    <button class="btn btn-primary" onclick="placeRouletteBet('red')">Bet Red 🔴</button>
+                    <button class="btn btn-danger" onclick="placeRouletteBet('black')">Bet Black ⚫</button>
+                    <button class="btn btn-success" onclick="placeRouletteBet('green')">Bet Green (0) 💚</button>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4>💰 Payouts:</h4>
+                    <ul style="color: var(--text-muted);">
+                        <li>Red/Black - 1:1</li>
+                        <li>Green (0) - 35:1</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blackjack Game -->
+    <div id="blackjackGame" class="page" style="display: none;">
+        <div class="game-container">
+            <div class="game-header">
+                <h2>🃏 Blackjack Pro</h2>
+                <button class="btn btn-primary" onclick="showPage('games')">Back to Games</button>
+            </div>
+            
+            <div class="game-board">
+                <div class="blackjack-table">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <h3>Dealer's Hand (<span id="dealerScore">0</span>)</h3>
+                    </div>
+                    <div class="hand" id="dealerHand"></div>
+
+                    <div id="blackjackResult" style="text-align: center; margin: 2rem 0; font-size: 1.5rem; font-weight: bold;"></div>
+
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <h3>Your Hand (<span id="playerScore">0</span>)</h3>
+                    </div>
+                    <div class="hand" id="playerHand"></div>
+                </div>
+
+                <div class="betting-controls" style="justify-content: center;">
+                    <input type="number" class="bet-input" id="blackjackBetAmount" value="10" min="1" max="1000">
+                    <button class="btn btn-primary" id="hitBtn" onclick="hit()" disabled>Hit</button>
+                    <button class="btn btn-danger" id="standBtn" onclick="stand()" disabled>Stand</button>
+                    <button class="btn btn-success" id="dealBtn" onclick="deal()">Deal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Poker Game -->
+    <div id="pokerGame" class="page" style="display: none;">
+        <div class="game-container">
+            <div class="game-header">
+                <h2>♠️ Texas Hold'em</h2>
+                <button class="btn btn-primary" onclick="showPage('games')">Back to Games</button>
+            </div>
+            
+            <div class="game-board">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h3>Current Bet: <span id="currentPokerBet">$10</span></h3>
+                </div>
+
+                <div class="blackjack-table">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <h3>Community Cards</h3>
+                    </div>
+                    <div class="hand" id="communityCards"></div>
+
+                    <div id="pokerResult" style="text-align: center; margin: 2rem 0; font-size: 1.5rem; font-weight: bold;"></div>
+
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <h3>Your Hand</h3>
+                    </div>
+                    <div class="hand" id="playerPokerHand"></div>
+                </div>
+
+                <div class="betting-controls" style="justify-content: center;">
+                    <input type="number" class="bet-input" id="pokerBetAmount" value="10" min="1" max="1000">
+                    <button class="btn btn-primary" onclick="playPoker()">Deal Cards</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deposit Modal -->
+    <div id="depositModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDepositModal()">&times;</button>
+            <h2>💰 Deposit Funds</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Add play money to your account</p>
+            
+            <div class="form-group">
+                <label>Amount ($)</label>
+                <input type="number" class="form-control" id="depositAmount" value="100" min="10">
+            </div>
+
+            <h3>Select Payment Method</h3>
+            <div class="payment-methods">
+                <div class="payment-method" onclick="selectPaymentMethod(this, 'creditcard')">
+                    <i>💳</i>
+                    <span>Credit Card</span>
+                </div>
+                <div class="payment-method" onclick="selectPaymentMethod(this, 'bitcoin')">
+                    <i>₿</i>
+                    <span>Bitcoin</span>
+                </div>
+                <div class="payment-method" onclick="selectPaymentMethod(this, 'ethereum')">
+                    <i>Ξ</i>
+                    <span>Ethereum</span>
+                </div>
+                <div class="payment-method" onclick="selectPaymentMethod(this, 'bank')">
+                    <i>🏦</i>
+                    <span>Bank Transfer</span>
+                </div>
+            </div>
+
+            <div id="paymentDetails" style="display: none; margin-bottom: 1rem;">
+                <div class="form-group">
+                    <label>Card Number</label>
+                    <input type="text" class="form-control" placeholder="**** **** **** ****">
+                </div>
+                <div class="form-group">
+                    <label>Expiry Date</label>
+                    <input type="text" class="form-control" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                    <label>CVV</label>
+                    <input type="text" class="form-control" placeholder="***">
+                </div>
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%;" onclick="processDeposit()">Deposit Now</button>
+        </div>
+    </div>
+
+    <!-- Withdraw Modal -->
+    <div id="withdrawModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeWithdrawModal()">&times;</button>
+            <h2>💸 Withdraw Funds</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Withdraw play money from your account</p>
+            
+            <div class="form-group">
+                <label>Amount ($)</label>
+                <input type="number" class="form-control" id="withdrawAmount" value="100" min="10">
+            </div>
+
+            <h3>Select Withdrawal Method</h3>
+            <div class="payment-methods">
+                <div class="payment-method" onclick="selectWithdrawMethod(this, 'creditcard')">
+                    <i>💳</i>
+                    <span>Credit Card</span>
+                </div>
+                <div class="payment-method" onclick="selectWithdrawMethod(this, 'bitcoin')">
+                    <i>₿</i>
+                    <span>Bitcoin</span>
+                </div>
+                <div class="payment-method" onclick="selectWithdrawMethod(this, 'ethereum')">
+                    <i>Ξ</i>
+                    <span>Ethereum</span>
+                </div>
+                <div class="payment-method" onclick="selectWithdrawMethod(this, 'bank')">
+                    <i>🏦</i>
+                    <span>Bank Transfer</span>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 1rem;">
+                <label>Withdrawal Address</label>
+                <input type="text" class="form-control" id="withdrawAddress" placeholder="Enter wallet address">
+            </div>
+
+            <button class="btn btn-success" style="width: 100%;" onclick="processWithdraw()">Withdraw Now</button>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Link -->
+    <div style="position: fixed; bottom: 20px; right: 20px;">
+        <button class="btn btn-primary" onclick="showAdminLogin()">🔐 Admin Dashboard</button>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeAdminLogin()">&times;</button>
+            <h2>🔐 Admin Login</h2>
+            
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" id="adminUsername">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="adminPassword">
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%;" onclick="adminLogin()">Login</button>
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+                Demo: admin / admin123
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
