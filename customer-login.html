@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CasinoBet99</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+        <div style="background: #0f3460; padding: 3rem; border-radius: 20px; max-width: 450px; width: 100%; border: 2px solid #ffd700;">
+            <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #ffd700, #e94560); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">🎰 CasinoBet99</h1>
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #ffd700;">Customer Login</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #a0a0a0;">Welcome back! Please login to your account</p>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.8rem; color: #a0a0a0;">Username</label>
+                <input type="text" id="loginUsername" placeholder="Enter your username" style="width: 100%; padding: 1rem; border: 2px solid #0f3460; border-radius: 10px; background: #1a1a2e; color: white;">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.8rem; color: #a0a0a0;">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" style="width: 100%; padding: 1rem; border: 2px solid #0f3460; border-radius: 10px; background: #1a1a2e; color: white;">
+            </div>
+            
+            <button onclick="login()" style="width: 100%; padding: 0.8rem 1.5rem; background: #e94560; color: white; border: none; border-radius: 25px; cursor: pointer; font-weight: 600;">Login</button>
+            
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <p style="color: #a0a0a0;">Don't have an account? <a href="customer-register.html" style="color: #ffd700; text-decoration: none;">Register here</a></p>
+                <p style="margin-top: 1rem; color: #a0a0a0;"><a href="admin-login.html" style="color: #ffd700; text-decoration: none;">Admin Login</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <a href="https://wa.link/102ikd" target="_blank" style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; z-index: 1000; animation: whatsappFloat 3s ease-in-out infinite;">
+        <span>💬</span>
+    </a>
+    
+    <script>
+    function login() {
+        const username = document.getElementById('loginUsername').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        if (!username || !password) {
+            alert('Please enter username and password');
+            return;
+        }
+        
+        const users = JSON.parse(localStorage.getItem('users') || '[]');
+        const user = users.find(u => u.username === username && u.password === password);
+        
+        if (user) {
+            const currentUser = {
+                username: user.username,
+                email: user.email,
+                phone: user.phone,
+                joinedDate: user.joinedDate
+            };
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            
+            if (!localStorage.getItem(`balance_${username}`)) {
+                localStorage.setItem(`balance_${username}`, '0');
+            }
+            
+            alert('Login successful!');
+            window.location.href = 'customer.html';
+        } else {
+            alert('Invalid username or password');
+        }
+    }
+    
+    document.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') login();
+    });
+    </script>
+</body>
+</html>
